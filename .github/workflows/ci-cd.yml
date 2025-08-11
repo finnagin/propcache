@@ -6,6 +6,7 @@ on:
   merge_group:
   push:
     branches:
+    - test_workflow
     - master
     - >-
       [0-9].[0-9]+
