@@ -7,6 +7,7 @@ on:
   push:
     branches:
     - master
+    - broken-default
     - >-
       [0-9].[0-9]+
     tags:
@@ -509,7 +510,7 @@ jobs:
       📦 Build wheels for odd arches${{ '' }}
     needs:
     - build-pure-python-dists
-    - pre-deploy
+    # - pre-deploy
     - pre-setup  # transitive, for accessing settings
     strategy:
       matrix:
@@ -526,7 +527,7 @@ jobs:
           qemu: armv7l
     uses: ./.github/workflows/reusable-build-wheel.yml
     with:
-      os: ubuntu-latest
+      # os: ubuntu-latest
       qemu: ${{ matrix.qemu }}
       tag: ${{ matrix.tag }}
       wheel-tags-to-skip: >-
